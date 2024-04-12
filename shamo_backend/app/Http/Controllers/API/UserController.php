@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redis;
 use Laravel\Fortify\Rules\Password;
 
 class UserController extends Controller
@@ -95,5 +96,11 @@ class UserController extends Controller
         $user->update($data);
 
         return ResponseFormatter::success($user, 'Profile diupdate');
+    }
+
+    public function logout(Request $request){
+        $token = $request->user()->currentAccessToken()->delete();
+
+        return ResponseFormatter::success($request->user(), 'Berhasil logout');
     }
 }
