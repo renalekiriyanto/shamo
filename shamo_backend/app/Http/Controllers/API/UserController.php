@@ -78,7 +78,14 @@ class UserController extends Controller
                 'user' => $user
             ], 'Authenticated');
         }catch(Exception $error){
-
+            return ResponseFormatter::error([
+                'message' => 'Ada yang salah.',
+                'error' => $error->getMessage()
+            ], 'Gagal Authentikasi', 500);
         }
+    }
+
+    public function fetch(Request $request){
+        return ResponseFormatter::success($request->user(), 'Data profile user berhasil diambil.');
     }
 }
