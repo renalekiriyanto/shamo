@@ -13,6 +13,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('producst', [ProductController::class, 'all']);
     Route::get('categories', [ProductCategoryController::class, 'all']);
     Route::get('user', [UserController::class, 'fetch']);
+    Route::post('user', [UserController::class, 'updateProfile']);
 });
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
