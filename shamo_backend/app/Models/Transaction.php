@@ -12,7 +12,7 @@ class Transaction extends Model
 
     protected $guarded = ['id'];
 
-    public function product(){
-        return $this->hasOne(Product::class, 'id', 'products_id');
+    public function items(){
+        return $this->hasMany(TransactionItem::class, 'transactions_id', 'id');
     }
 }
