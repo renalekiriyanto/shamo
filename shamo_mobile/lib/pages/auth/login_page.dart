@@ -108,7 +108,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget signInButton() {
+  Widget signInButton(context) {
     return Container(
       height: 50,
       width: double.infinity,
@@ -119,9 +119,14 @@ class LoginPage extends StatelessWidget {
             backgroundColor: primaryColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12))),
-        child: Text(
-          'Sign In',
-          style: primaryTextStyle.copyWith(fontSize: 16, fontWeight: medium),
+        child: GestureDetector(
+          onTap: (){
+            Navigator.pushNamed(context, '/home');
+          },
+          child: Text(
+            'Sign In',
+            style: primaryTextStyle.copyWith(fontSize: 16, fontWeight: medium),
+          ),
         ),
       ),
     );
@@ -163,7 +168,7 @@ class LoginPage extends StatelessWidget {
               header(),
               emailInput(),
               passwordInput(),
-              signInButton(),
+              signInButton(context),
               Spacer(),
               footer(context)
             ],
