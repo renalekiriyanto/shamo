@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:shamo_mobile/theme.dart";
@@ -126,7 +127,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget footer() {
+  Widget footer(context) {
     return Container(
       margin: EdgeInsets.only(bottom: 30),
       child: Row(
@@ -136,7 +137,13 @@ class LoginPage extends StatelessWidget {
             "Don't have an account ? ",
             style: subtitleTextStyle.copyWith(fontSize: 12),
           ),
-          Text("Sign Up", style: purpleTextStyle.copyWith(fontSize: 12, fontWeight: medium),)
+          GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/sign-up');
+              },
+              child: Text("Sign Up",
+                  style: purpleTextStyle.copyWith(
+                      fontSize: 12, fontWeight: medium)))
         ],
       ),
     );
@@ -158,7 +165,7 @@ class LoginPage extends StatelessWidget {
               passwordInput(),
               signInButton(),
               Spacer(),
-              footer()
+              footer(context)
             ],
           ),
         ),
