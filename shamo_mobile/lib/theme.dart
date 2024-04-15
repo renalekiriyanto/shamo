@@ -3,6 +3,7 @@ import "package:google_fonts/google_fonts.dart";
 
 Color primaryColor = Color(0xff6C5ECF);
 Color secondaryColor = Color(0xff38ABBE);
+Color disactiveColor = Color(0xff808191);
 Color alertColor = Color(0xffED6363);
 Color priceColor = Color(0xff2C96F1);
 Color bgColor1 = Color(0xff1F1D2B);

@@ -120,12 +120,18 @@ class LoginPage extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12))),
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.pushNamed(context, '/home');
           },
-          child: Text(
-            'Sign In',
-            style: primaryTextStyle.copyWith(fontSize: 16, fontWeight: medium),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/home');
+            },
+            child: Text(
+              'Sign In',
+              style:
+                  primaryTextStyle.copyWith(fontSize: 16, fontWeight: medium),
+            ),
           ),
         ),
       ),
