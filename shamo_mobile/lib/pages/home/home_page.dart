@@ -1,6 +1,7 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:shamo_mobile/theme.dart";
+import "package:shamo_mobile/widgets/product_card.dart";
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -54,11 +55,12 @@ class HomePage extends StatelessWidget {
                 margin: EdgeInsets.only(right: 16),
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12), color: primaryColor),
+                    borderRadius: BorderRadius.circular(12),
+                    color: primaryColor),
                 child: Text(
                   'All Shoes',
-                  style:
-                      primaryTextStyle.copyWith(fontSize: 13, fontWeight: medium),
+                  style: primaryTextStyle.copyWith(
+                      fontSize: 13, fontWeight: medium),
                 ),
               ),
               Container(
@@ -70,8 +72,8 @@ class HomePage extends StatelessWidget {
                     border: Border.all(color: subtitleTextColor)),
                 child: Text(
                   'Running',
-                  style:
-                      subtitleTextStyle.copyWith(fontSize: 13, fontWeight: medium),
+                  style: subtitleTextStyle.copyWith(
+                      fontSize: 13, fontWeight: medium),
                 ),
               ),
               Container(
@@ -83,8 +85,8 @@ class HomePage extends StatelessWidget {
                     border: Border.all(color: subtitleTextColor)),
                 child: Text(
                   'Training',
-                  style:
-                      subtitleTextStyle.copyWith(fontSize: 13, fontWeight: medium),
+                  style: subtitleTextStyle.copyWith(
+                      fontSize: 13, fontWeight: medium),
                 ),
               ),
               Container(
@@ -96,8 +98,8 @@ class HomePage extends StatelessWidget {
                     border: Border.all(color: subtitleTextColor)),
                 child: Text(
                   'Basketball',
-                  style:
-                      subtitleTextStyle.copyWith(fontSize: 13, fontWeight: medium),
+                  style: subtitleTextStyle.copyWith(
+                      fontSize: 13, fontWeight: medium),
                 ),
               ),
               Container(
@@ -109,8 +111,8 @@ class HomePage extends StatelessWidget {
                     border: Border.all(color: subtitleTextColor)),
                 child: Text(
                   'Hiking',
-                  style:
-                      subtitleTextStyle.copyWith(fontSize: 13, fontWeight: medium),
+                  style: subtitleTextStyle.copyWith(
+                      fontSize: 13, fontWeight: medium),
                 ),
               ),
             ],
@@ -119,8 +121,47 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget popularProductTitle() {
+      return Container(
+        margin: EdgeInsets.only(top: 30, left: 30),
+        child: Text(
+          'Popular Products',
+          style: primaryTextStyle.copyWith(fontSize: 22, fontWeight: semiBold),
+        ),
+      );
+    }
+
+    Widget popularProduct() {
+      return Container(
+        margin: EdgeInsets.only(top: 14),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SizedBox(
+                width: 30,
+              ),
+              Row(
+                children: [
+                  ProductCard(),
+                  ProductCard(),
+                  ProductCard(),
+                  ProductCard(),
+                ],
+              )
+            ],
+          ),
+        ),
+      );
+    }
+
     return ListView(
-      children: [header(), categories()],
+      children: [
+        header(),
+        categories(),
+        popularProductTitle(),
+        popularProduct()
+      ],
     );
   }
 }
