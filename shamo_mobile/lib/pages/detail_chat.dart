@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter/widgets.dart";
 import "package:shamo_mobile/theme.dart";
 
 class DetailChat extends StatelessWidget {
@@ -42,10 +43,40 @@ class DetailChat extends StatelessWidget {
       );
     }
 
+
+    Widget chatInput(){
+      return Container(
+        margin: EdgeInsets.all(20),
+        child: Row(
+          children: [
+            Expanded(
+              child: Container(
+                height: 45,
+                padding: EdgeInsets.symmetric(horizontal: 16,),
+                decoration: BoxDecoration(
+                  color: bgColor4,
+                  borderRadius: BorderRadius.circular(12)
+                ),
+                child: Center(child: TextFormField(
+                  decoration: InputDecoration.collapsed(
+                    hintText: 'Type Message...',
+                    hintStyle: subtitleTextStyle
+                  ),
+                ),),
+              ),
+            ),
+            SizedBox(width: 20,),
+            Image.asset('assets/button_send.png', width: 45,)
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: bgColor3,
       appBar:
           PreferredSize(preferredSize: Size.fromHeight(70), child: header()),
+      bottomNavigationBar: chatInput(),
     );
   }
 }
